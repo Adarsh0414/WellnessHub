@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Wellness Hub</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Wellness<span>Hub</span></a>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="bmi.html">BMI Check</a>
+        <a href="nutrition.html">Nutrition</a>
+        <a href="lifestyle.html">Lifestyle</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active btn btn-sm">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container page">
+    <div class="grid">
+      <section class="panel">
+        <h2>Contact Dr. Adarsh Singh</h2>
+        <p>For appointments and general queries, use the form or email directly.</p>
+
+        <div class="card" style="margin-top:10px">
+          <ul>
+            <li><strong>Name:</strong> Adarsh Singh</li>
+            <li><strong>Email:</strong> <a href="mailto:02adarshrajput@gmail.com">02adarshrajput@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <form id="contact-form" style="margin-top:12px" novalidate>
+          <label for="cname">Your name</label>
+          <input id="cname" name="cname" placeholder="Full name" required />
+
+          <label for="cemail">Email</label>
+          <input id="cemail" name="cemail" type="email" placeholder="name@example.com" required />
+
+          <label for="cmsg">Message</label>
+          <input id="cmsg" name="cmsg" placeholder="How can we help?" required />
+
+          <div class="cta-group" style="margin-top:10px">
+            <button class="btn btn-primary" type="submit">Send</button>
+            <a class="btn" href="mailto:02adarshrajput@gmail.com?subject=Appointment%20Request">Email directly</a>
+          </div>
+          <small id="contact-feedback" class="form-feedback" role="status"></small>
+        </form>
+      </section>
+
+      <aside class="panel">
+        <h3>Clinic hours</h3>
+        <ul>
+          <li>Mon–Fri: 9:00 – 18:00</li>
+          <li>Sat: 10:00 – 14:00</li>
+          <li>Sun: Closed</li>
+        </ul>
+        <h3>Note</h3>
+        <p class="muted">This is a demo site. Messages are not sent to a live server.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="logo" href="../index.html">Wellness<span>Hub</span></a>
+        <p class="muted">Informational purposes only. Not a substitute for professional medical advice.</p>
+      </div>
+      <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const form = document.getElementById('contact-form');
+      const fb = document.getElementById('contact-feedback');
+      if(form){
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          const email = form.cemail.value.trim();
+          if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+            fb.textContent = 'Please enter a valid email.';
+            fb.style.color = '#fca5a5';
+            return;
+          }
+          fb.textContent = 'Thanks! Your message has been noted (demo). Please also email if urgent.';
+          fb.style.color = '#a7f3d0';
+          form.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
